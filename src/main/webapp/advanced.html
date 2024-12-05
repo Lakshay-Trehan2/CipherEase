@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Processing - CipherEase</title>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script> 
+    <style>
+        /* CSS styles for the page elements (omitted for brevity) */
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> 
+                <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
+            </svg>
+            <span>CipherEase</span> 
+        </div>
+        <a href="index.html" class="home-btn">Home</a> 
+    </div>
+
+    <div class="container">
+        <h2>Advanced Processing</h2>
+        <label for="text-input">Text to Encrypt/Decrypt:</label>
+        <textarea id="text-input" rows="4" placeholder="Enter text..."></textarea>
+
+        <label for="key-input">Key/Passphrase for AES:</label> 
+        <input type="text" id="key-input" placeholder="Enter AES key..."> 
+
+        <div class="btn-group">
+            <button class="encrypt-server-btn" id="encrypt-btn">Encrypt</button>
+            <button class="decrypt-server-btn" id="decrypt-btn">Decrypt</button>
+        </div>
+
+        <div class="server-response">
+            <h3>Server Response</h3>
+            <textarea id="server-output" rows="3" readonly>Output will be displayed here...</textarea> 
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        CipherEase by The Lakshay Trehan. 
+    </div>
+
+    <script>
+        // Event listener for the "Encrypt" button
+        document.getElementById('encrypt-btn').addEventListener('click', () => {
+            // Get the text and key input values
+            const text = document.getElementById('text-input').value; 
+            const key = document.getElementById('key-input').value; 
+
+            // Validate that both text and key are provided
+            if (!text || !key) {
+                alert('Please provide both text and a key!');
+                return; 
+            }
+
+            // Encrypt the text using AES with the provided key
+            const encrypted = CryptoJS.AES.encrypt(text, key).toString(); 
+            // Display the encrypted text in the output area
+            document.getElementById('server-output').value = `Encrypted Text: ${encrypted}`; 
+        });
+
+        // Event listener for the "Decrypt" button
+        document.getElementById('decrypt-btn').addEventListener('click', () => {
+            // Get the text and key input values
+            const text = document.getElementById('text-input').value; 
+            const key = document.getElementById('key-input').value; 
+
+            // Validate that both text and key are provided
+            if (!text || !key) {
+                alert('Please provide both encrypted text and a key!');
+                return; 
+            }
+
+            try {
+                // Decrypt the text using AES with the provided key
+                const decrypted = CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8); 
+                
+                // Handle potential decryption errors (e.g., incorrect key)
+                if (!decrypted) throw new Error(); 
+                
+                // Display the decrypted text in the output area
+                document.getElementById('server-output').value = `Decrypted Text: ${decrypted}`; 
+            } catch (err) {
+                // Display an error message if decryption fails
+                document.getElementById('server-output').value = 'Decryption failed! Invalid key or text.'; 
+            }
+        });
+    </script>
+</body>
+</html>

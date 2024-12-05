@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption/Decryption Tool</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Lexend Deca', sans-serif;
+            background: url('coded-data.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        .header-bar {
+            width: 100%;
+            background-color: #000;
+            color: #0fc;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .header-bar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-bar .logo svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            fill: #0fc;
+        }
+
+        .header-bar .logo span {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        /* Main container */
+        .container {
+            width: 800px;
+            background-color: rgba(240, 241, 255, 0.9); /* Semi-transparent background */
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Title and description */
+        .title-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title-section h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #030303;
+            margin: 0;
+        }
+
+        .title-section p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #545454;
+            margin: 5px 0 0;
+        }
+
+        /* Input section */
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        .input-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ececec;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #030303;
+            background-color: #fff;
+            resize: none;
+        }
+
+        .input-section textarea::placeholder {
+            color: #c2c2c2;
+        }
+
+        .clear-btn {
+            margin-top: 10px;
+            background-color: #767676;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background-color: #5e5e5e;
+            transform: scale(1.1);
+        }
+
+        /* Algorithm selection */
+        .algorithm-section {
+            margin-bottom: 20px;
+        }
+
+        .algorithm-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 10px;
+            color: #030303;
+        }
+
+        .algorithm-options {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .algorithm-options label {
+            font-size: 16px;
+            font-weight: 400;
+            color: #030303;
+        }
+
+        .algorithm-options input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* Buttons section */
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .encrypt-btn,
+        .decrypt-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .encrypt-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .encrypt-btn:hover {
+            background-color: #218838;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+        }
+
+        .decrypt-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .decrypt-btn:hover {
+            background-color: #c82333;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.7);
+        }
+
+        /* Result section */
+        .result-section {
+            margin-bottom: 20px;
+        }
+
+        .result-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 10px;
+            color: #030303;
+        }
+
+        .result-box {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #ececec;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #030303;
+            background-color: #fff;
+            resize: none;
+        }
+
+        .result-box::placeholder {
+            color: #c2c2c2;
+        }
+
+        .copy-btn {
+            margin-top: 10px;
+            background-color: #767676;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: #5e5e5e;
+            transform: scale(1.1);
+        }
+
+        /* Advanced processing button */
+        .advanced-btn {
+            display: inline-block;
+            background-color: #3164f4;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 22px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            float: right; /* Keeps button aligned to the right */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .advanced-btn:hover {
+            background-color: #264eda;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(49, 100, 244, 0.7);
+        }
+
+        /* Footer styling */
+        .footer-bar {
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<div class="header-bar">
+    <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
+        </svg>
+        <span>CipherEase</span>
+    </div>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Title and Description -->
+    <div class="title-section">
+        <h1>Encryption/Decryption Tool</h1>
+        <p>Enter your text and select an algorithm to encrypt or decrypt</p>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-section">
+        <textarea id="textInput" placeholder="Enter text here..."></textarea>
+        <button class="clear-btn" id="clearBtn">Clear</button>
+    </div>
+
+    <!-- Algorithm Section -->
+    <div class="algorithm-section">
+        <h3>Select Algorithm</h3>
+        <div class="algorithm-options">
+            <label><input type="radio" name="algorithm" value="caesar" checked> Caesar Cipher</label>
+            <label><input type="radio" name="algorithm" value="base64"> Base64</label>
+            <label><input type="radio" name="algorithm" value="aes"> AES</label>
+        </div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="buttons">
+        <button class="encrypt-btn" id="encryptBtn">Encrypt</button>
+        <button class="decrypt-btn" id="decryptBtn">Decrypt</button>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-section">
+        <h3>Result</h3>
+        <textarea id="resultOutput" class="result-box" placeholder="Encrypted/Decrypted text will appear" readonly></textarea>
+        <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+    </div>
+
+    <!-- Advanced Processing -->
+    <a href="advanced.html" class="advanced-btn">Advanced Processing</a>
+</div>
+
+<!-- Footer -->
+<div class="footer-bar">
+    CipherEase by The Lakshay Trehan.
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+

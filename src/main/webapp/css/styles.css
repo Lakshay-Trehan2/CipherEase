@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif; /* Set the default font for the page */
+    line-height: 1.6; /* Set line spacing for better readability */
+    margin: 0; /* Remove default browser margins */
+    padding: 0; /* Remove default browser padding */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange elements vertically */
+    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+}
+
+header, footer {
+    background-color: #333; /* Dark gray background for header and footer */
+    color: #fff; /* White text color for header and footer */
+    text-align: center; /* Center align text within header and footer */
+    padding: 1rem; /* Add padding around the content */
+}
+
+main {
+    flex: 1; /* Allow the main content area to grow and fill available space */
+    padding: 2rem; /* Add padding around the main content */
+    max-width: 800px; /* Set a maximum width for the main content area */
+    margin: 0 auto; /* Center the main content area horizontally */
+}
+
+h1, h2 {
+    margin-bottom: 1rem; /* Add spacing below headings */
+}
+
+form {
+    display: flex; /* Use flexbox for form layout */
+    flex-direction: column; /* Arrange form elements vertically */
+    gap: 1rem; /* Add spacing between form elements */
+}
+
+label {
+    font-weight: bold; /* Make labels bold */
+}
+
+textarea, select {
+    width: 100%; /* Make textareas and selects take up full width */
+    padding: 0.5rem; /* Add padding within textareas and selects */
+    border: 1px solid #ccc; /* Add a light gray border */
+    border-radius: 4px; /* Add rounded corners */
+}
+
+button {
+    background-color: #333; /* Dark gray background for buttons */
+    color: #fff; /* White text color for buttons */
+    padding: 0.5rem 1rem; /* Add padding within buttons */
+    border: none; /* Remove default button border */
+    border-radius: 4px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button:hover {
+    background-color: #555; /* Slightly darker background on hover */
+}
