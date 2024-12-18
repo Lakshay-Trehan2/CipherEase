@@ -4,58 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CipherEase - Encryption/Decryption Tool</title>
+    <!-- Link to external stylesheet for styling -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="header-bar">
-    <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
-        </svg>
-        <span>CipherEase</span>
+    <!-- Header section containing the logo and title -->
+    <div class="header-bar">
+        <div class="logo">
+            <!-- Logo displayed as an SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
+            </svg>
+            <span>CipherEase</span> <!-- Brand name -->
+        </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="content">
-        <div class="title-section">
-            <h1>Encryption/ Decryption Tool</h1>
-            <p>Secure your data with advanced algorithms</p>
-        </div>
-
-        <div class="input-section">
-            <textarea id="textInput" placeholder="Enter your secret message here..."></textarea>
-            <button class="clear-btn" id="clearBtn">Clear</button>
-        </div>
-
-        <div class="algorithm-section">
-            <h3>Select Algorithm</h3>
-            <div class="algorithm-options">
-                <label><input type="radio" name="algorithm" value="caesar" checked> Caesar Cipher</label>
-                <label><input type="radio" name="algorithm" value="aes"> AES</label>
+    <!-- Main container for content -->
+    <div class="container">
+        <div class="content">
+            <!-- Title section with the main heading and description -->
+            <div class="title-section">
+                <h1>Encryption/ Decryption Tool</h1>
+                <p>Secure your data with advanced algorithms</p>
             </div>
-        </div>
 
-        <div class="buttons">
-            <button class="encrypt-btn" id="encryptBtn">Encrypt</button>
-            <button class="decrypt-btn" id="decryptBtn">Decrypt</button>
-        </div>
+            <!-- Input section for the user to provide text for encryption or decryption -->
+            <div class="input-section">
+                <textarea id="textInput" placeholder="Enter your secret message here..."></textarea> <!-- Text input area -->
+                <button class="clear-btn" id="clearBtn">Clear</button> <!-- Button to clear the input -->
+            </div>
 
-        <div class="result-section">
-            <h3>Result</h3>
-            <textarea id="resultOutput" class="result-box" placeholder="Your processed message will appear here" readonly></textarea>
-            <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
-        </div>
+            <!-- Section for selecting the algorithm type -->
+            <div class="algorithm-section">
+                <h3>Select Algorithm</h3>
+                <div class="algorithm-options">
+                    <!-- Radio button to choose Caesar Cipher -->
+                    <label><input type="radio" name="algorithm" value="caesar" checked> Caesar Cipher</label>
+                    <!-- Radio button to choose AES encryption -->
+                    <label><input type="radio" name="algorithm" value="aes"> AES</label>
+                </div>
+            </div>
 
-        <a href="advanced.html" class="advanced-btn">Advanced Processing</a>
+            <!-- Buttons for encryption and decryption actions -->
+            <div class="buttons">
+                <button class="encrypt-btn" id="encryptBtn">Encrypt</button> <!-- Button for encryption -->
+                <button class="decrypt-btn" id="decryptBtn">Decrypt</button> <!-- Button for decryption -->
+            </div>
+
+            <!-- Section to display the encryption/decryption result -->
+            <div class="result-section">
+                <h3>Result</h3>
+                <textarea id="resultOutput" class="result-box" placeholder="Your processed message will appear here" readonly></textarea> <!-- Read-only area to show the result -->
+                <button class="copy-btn" id="copyBtn">Copy to Clipboard</button> <!-- Button to copy the result -->
+            </div>
+
+            <!-- Link to navigate to the advanced processing page -->
+            <a href="advanced.html" class="advanced-btn">Advanced Processing</a>
+        </div>
     </div>
-</div>
 
-<div class="footer-bar">
-    CipherEase by The Lakshay Trehan | Secure. Fast. Reliable.
-</div>
+    <!-- Footer section with branding information -->
+    <div class="footer-bar">
+        CipherEase by The Lakshay Trehan | Secure. Fast. Reliable.
+    </div>
 
-<script src="js/script.js"></script>
+    <!-- Link to external JavaScript file for script functionalities -->
+    <script src="js/script.js"></script>
 </body>
 </html>
-
