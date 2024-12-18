@@ -4,33 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Processing - CipherEase</title>
+    <!-- Include CryptoJS for AES encryption and decryption -->
     <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Styles for the main content background and text */
         .content {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        /* Label styling for input fields */
         .content label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #0fc;
+            color: #0fc; /* Neon green for labels */
         }
+
+        /* Input field styling for the text and key inputs */
         .content input[type="text"] {
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
             background-color: rgba(0, 0, 0, 0.6);
-            color: #0fc;
+            color: #0fc; /* Neon green text */
             border: 1px solid #0fc;
             border-radius: 5px;
         }
+
+        /* Styling for the button group */
         .btn-group {
             display: flex;
-            gap: 1rem;
+            gap: 1rem; /* Space between buttons */
             margin-bottom: 1rem;
         }
+
+        /* General button styling */
         .btn-group button {
-            flex: 1;
+            flex: 1; /* Equal width buttons */
             padding: 0.75rem;
             border: none;
             border-radius: 5px;
@@ -41,112 +51,137 @@
             letter-spacing: 1px;
             font-weight: 600;
         }
+
+        /* Specific styles for the Encrypt button */
         .encrypt-server-btn {
-            background-color: rgba(40, 167, 69, 0.2);
-            color: #2ecc71;
+            background-color: rgba(40, 167, 69, 0.2); /* Light green background */
+            color: #2ecc71; /* Bright green text */
             border: 1px solid #2ecc71;
         }
+
+        /* Specific styles for the Decrypt button */
         .decrypt-server-btn {
-            background-color: rgba(220, 53, 69, 0.2);
-            color: #e74c3c;
+            background-color: rgba(220, 53, 69, 0.2); /* Light red background */
+            color: #e74c3c; /* Bright red text */
             border: 1px solid #e74c3c;
         }
-        .encrypt-server-btn:hover,
-        .decrypt-server-btn:hover {
-            transform: translateY(-2px);
-        }
+
+        /* Hover effects for the buttons */
         .encrypt-server-btn:hover {
-            background-color: rgba(40, 167, 69, 0.4);
+            background-color: rgba(40, 167, 69, 0.4); /* Darker green */
         }
+
         .decrypt-server-btn:hover {
-            background-color: rgba(220, 53, 69, 0.4);
+            background-color: rgba(220, 53, 69, 0.4); /* Darker red */
         }
+
+        /* Styling for the "View Logs" link */
         .view-logs-link {
-            color: #3498db;
+            color: #3498db; /* Bright blue */
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
+
         .view-logs-link:hover {
-            color: #2980b9;
+            color: #2980b9; /* Darker blue on hover */
         }
+
+        /* Responsive adjustments for small screens */
         @media (max-width: 768px) {
             .btn-group {
-                flex-direction: column;
+                flex-direction: column; /* Stack buttons vertically */
             }
         }
     </style>
 </head>
 <body>
-<div class="header-bar">
-    <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
-        </svg>
-        <span>CipherEase</span>
-    </div>
-</div>
-
-<div class="container">
-    <div class="content">
-        <h2>Advanced Processing</h2>
-        <label for="text-input">Text to Encrypt/Decrypt:</label>
-        <textarea id="text-input" rows="4" placeholder="Enter your advanced secret message here..."></textarea>
-
-        <label for="key-input">Key/Passphrase for AES:</label>
-        <input type="text" id="key-input" placeholder="Enter your secret key...">
-
-        <div class="btn-group">
-            <button class="encrypt-server-btn" id="encrypt-btn">Encrypt</button>
-            <button class="decrypt-server-btn" id="decrypt-btn">Decrypt</button>
+    <!-- Header bar with a logo -->
+    <div class="header-bar">
+        <div class="logo">
+            <!-- Logo SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
+            </svg>
+            <span>CipherEase</span>
         </div>
-
-        <div class="server-response">
-            <h3>Server Response</h3>
-            <textarea id="server-output" rows="3" readonly placeholder="Processed message will appear here..."></textarea>
-
-        </div>
-
-        <a href="index.html" class="advanced-btn">Back to Home</a>
     </div>
-</div>
 
-<div class="footer-bar">
-    CipherEase by The Lakshay Trehan | Advanced Security for Advanced Needs
-</div>
+    <!-- Main container for content -->
+    <div class="container">
+        <div class="content">
+            <h2>Advanced Processing</h2>
+            
+            <!-- Input field for the text to be encrypted or decrypted -->
+            <label for="text-input">Text to Encrypt/Decrypt:</label>
+            <textarea id="text-input" rows="4" placeholder="Enter your advanced secret message here..."></textarea>
 
-<script>
-    document.getElementById('encrypt-btn').addEventListener('click', () => {
-        const text = document.getElementById('text-input').value;
-        const key = document.getElementById('key-input').value;
+            <!-- Input field for the AES key/passphrase -->
+            <label for="key-input">Key/Passphrase for AES:</label>
+            <input type="text" id="key-input" placeholder="Enter your secret key...">
 
-        if (!text || !key) {
-            alert('Please provide both text and a key!');
-            return;
-        }
+            <!-- Button group for Encrypt and Decrypt actions -->
+            <div class="btn-group">
+                <button class="encrypt-server-btn" id="encrypt-btn">Encrypt</button>
+                <button class="decrypt-server-btn" id="decrypt-btn">Decrypt</button>
+            </div>
 
-        const encrypted = CryptoJS.AES.encrypt(text, key).toString();
-        document.getElementById('server-output').value = `Encrypted Text: ${encrypted}`;
-    });
+            <!-- Area to display the processed message -->
+            <div class="server-response">
+                <h3>Server Response</h3>
+                <textarea id="server-output" rows="3" readonly placeholder="Processed message will appear here..."></textarea>
+            </div>
 
-    document.getElementById('decrypt-btn').addEventListener('click', () => {
-        const text = document.getElementById('text-input').value;
-        const key = document.getElementById('key-input').value;
+            <!-- Navigation link to return to the home page -->
+            <a href="index.html" class="advanced-btn">Back to Home</a>
+        </div>
+    </div>
 
-        if (!text || !key) {
-            alert('Please provide both encrypted text and a key!');
-            return;
-        }
+    <!-- Footer with branding -->
+    <div class="footer-bar">
+        CipherEase by The Lakshay Trehan | Advanced Security for Advanced Needs
+    </div>
 
-        try {
-            const decrypted = CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8);
-            if (!decrypted) throw new Error();
-            document.getElementById('server-output').value = `Decrypted Text: ${decrypted}`;
-        } catch (err) {
-            document.getElementById('server-output').value = 'Decryption failed! Invalid key or text.';
-        }
-    });
-</script>
+    <script>
+        // Event listener for Encrypt button
+        document.getElementById('encrypt-btn').addEventListener('click', () => {
+            const text = document.getElementById('text-input').value; // Get the text input
+            const key = document.getElementById('key-input').value; // Get the key input
+
+            // Check if both fields are filled
+            if (!text || !key) {
+                alert('Please provide both text and a key!');
+                return;
+            }
+
+            // Encrypt the text using AES
+            const encrypted = CryptoJS.AES.encrypt(text, key).toString();
+            document.getElementById('server-output').value = `Encrypted Text: ${encrypted}`;
+        });
+
+        // Event listener for Decrypt button
+        document.getElementById('decrypt-btn').addEventListener('click', () => {
+            const text = document.getElementById('text-input').value; // Get the encrypted text input
+            const key = document.getElementById('key-input').value; // Get the key input
+
+            // Check if both fields are filled
+            if (!text || !key) {
+                alert('Please provide both encrypted text and a key!');
+                return;
+            }
+
+            try {
+                // Decrypt the text using AES
+                const decrypted = CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8);
+
+                // Check if decryption was successful
+                if (!decrypted) throw new Error();
+                document.getElementById('server-output').value = `Decrypted Text: ${decrypted}`;
+            } catch (err) {
+                // Display error if decryption fails
+                document.getElementById('server-output').value = 'Decryption failed! Invalid key or text.';
+            }
+        });
+    </script>
 </body>
 </html>
-
