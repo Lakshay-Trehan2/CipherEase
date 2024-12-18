@@ -4,153 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Processing - CipherEase</title>
-    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* General body styling */
-        body {
-            font-family: 'Lexend Deca', sans-serif;
-            background: url('coded-data.gif') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
+        .content {
+            background-color: rgba(0, 0, 0, 0.8);
         }
-
-        /* Header styling */
-        .header-bar {
-            width: 100%;
-            background-color: #000;
+        .content label {
+            display: block;
+            margin-bottom: 0.5rem;
             color: #0fc;
-            padding: 10px 20px;
+        }
+        .content input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #0fc;
+            border: 1px solid #0fc;
+            border-radius: 5px;
+        }
+        .btn-group {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-            box-sizing: border-box;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
-
-        .header-bar .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .header-bar .logo svg {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            fill: #0fc;
-        }
-
-        .header-bar .logo span {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .home-btn {
-            background-color: #fff;
-            color: #000;
+        .btn-group button {
+            flex: 1;
+            padding: 0.75rem;
             border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 5px;
+            font-size: 1rem;
             cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .home-btn:hover {
-            background-color: #ddd;
-            transform: scale(1.1);
-        }
-
-        /* Main container */
-        .container {
-            width: 800px;
-            background-color: rgba(20, 20, 20, 0.9);
-            padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            color: #fff;
-        }
-
-        .container label {
-            font-size: 16px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-weight: 600;
         }
-
-        .container textarea,
-        .container input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #444;
-            background-color: #222;
-            color: #fff;
-            margin: 10px 0 20px;
-            font-size: 16px;
-        }
-
-        .btn-group button {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
         .encrypt-server-btn {
-            background-color: #28a745;
-            color: #fff;
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #2ecc71;
+            border: 1px solid #2ecc71;
         }
-
         .decrypt-server-btn {
-            background-color: #dc3545;
-            color: #fff;
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
         }
-
-        .server-response textarea {
-            background-color: #222;
-            border: 1px solid #444;
-            color: #fff;
+        .encrypt-server-btn:hover,
+        .decrypt-server-btn:hover {
+            transform: translateY(-2px);
         }
-
+        .encrypt-server-btn:hover {
+            background-color: rgba(40, 167, 69, 0.4);
+        }
+        .decrypt-server-btn:hover {
+            background-color: rgba(220, 53, 69, 0.4);
+        }
         .view-logs-link {
-            color: #0fc;
+            color: #3498db;
             text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-
-        .footer-bar {
-            width: 100%;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+        .view-logs-link:hover {
+            color: #2980b9;
+        }
+        @media (max-width: 768px) {
+            .btn-group {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header-bar">
-        <div class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> 
-                <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
-            </svg>
-            <span>CipherEase</span> 
-        </div>
-        <a href="index.html" class="home-btn">Home</a> 
+<div class="header-bar">
+    <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"/>
+        </svg>
+        <span>CipherEase</span>
     </div>
+</div>
 
-    <div class="container">
+<div class="container">
+    <div class="content">
         <h2>Advanced Processing</h2>
         <label for="text-input">Text to Encrypt/Decrypt:</label>
-        <textarea id="text-input" rows="4" placeholder="Enter text..."></textarea>
+        <textarea id="text-input" rows="4" placeholder="Enter your advanced secret message here..."></textarea>
 
-        <label for="key-input">Key/Passphrase for AES:</label> 
-        <input type="text" id="key-input" placeholder="Enter AES key..."> 
+        <label for="key-input">Key/Passphrase for AES:</label>
+        <input type="text" id="key-input" placeholder="Enter your secret key...">
 
         <div class="btn-group">
             <button class="encrypt-server-btn" id="encrypt-btn">Encrypt</button>
@@ -159,59 +103,50 @@
 
         <div class="server-response">
             <h3>Server Response</h3>
-            <textarea id="server-output" rows="3" readonly>Output will be displayed here...</textarea> 
+            <textarea id="server-output" rows="3" readonly placeholder="Processed message will appear here..."></textarea>
+
         </div>
+
+        <a href="index.html" class="advanced-btn">Back to Home</a>
     </div>
+</div>
 
-    <div class="footer-bar">
-        CipherEase by The Lakshay Trehan. 
-    </div>
+<div class="footer-bar">
+    CipherEase by The Lakshay Trehan | Advanced Security for Advanced Needs
+</div>
 
-    <script>
-        // Event listener for the "Encrypt" button
-        document.getElementById('encrypt-btn').addEventListener('click', () => {
-            // Get the text and key input values
-            const text = document.getElementById('text-input').value; 
-            const key = document.getElementById('key-input').value; 
+<script>
+    document.getElementById('encrypt-btn').addEventListener('click', () => {
+        const text = document.getElementById('text-input').value;
+        const key = document.getElementById('key-input').value;
 
-            // Validate that both text and key are provided
-            if (!text || !key) {
-                alert('Please provide both text and a key!');
-                return; 
-            }
+        if (!text || !key) {
+            alert('Please provide both text and a key!');
+            return;
+        }
 
-            // Encrypt the text using AES with the provided key
-            const encrypted = CryptoJS.AES.encrypt(text, key).toString(); 
-            // Display the encrypted text in the output area
-            document.getElementById('server-output').value = `Encrypted Text: ${encrypted}`; 
-        });
+        const encrypted = CryptoJS.AES.encrypt(text, key).toString();
+        document.getElementById('server-output').value = `Encrypted Text: ${encrypted}`;
+    });
 
-        // Event listener for the "Decrypt" button
-        document.getElementById('decrypt-btn').addEventListener('click', () => {
-            // Get the text and key input values
-            const text = document.getElementById('text-input').value; 
-            const key = document.getElementById('key-input').value; 
+    document.getElementById('decrypt-btn').addEventListener('click', () => {
+        const text = document.getElementById('text-input').value;
+        const key = document.getElementById('key-input').value;
 
-            // Validate that both text and key are provided
-            if (!text || !key) {
-                alert('Please provide both encrypted text and a key!');
-                return; 
-            }
+        if (!text || !key) {
+            alert('Please provide both encrypted text and a key!');
+            return;
+        }
 
-            try {
-                // Decrypt the text using AES with the provided key
-                const decrypted = CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8); 
-                
-                // Handle potential decryption errors (e.g., incorrect key)
-                if (!decrypted) throw new Error(); 
-                
-                // Display the decrypted text in the output area
-                document.getElementById('server-output').value = `Decrypted Text: ${decrypted}`; 
-            } catch (err) {
-                // Display an error message if decryption fails
-                document.getElementById('server-output').value = 'Decryption failed! Invalid key or text.'; 
-            }
-        });
-    </script>
+        try {
+            const decrypted = CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8);
+            if (!decrypted) throw new Error();
+            document.getElementById('server-output').value = `Decrypted Text: ${decrypted}`;
+        } catch (err) {
+            document.getElementById('server-output').value = 'Decryption failed! Invalid key or text.';
+        }
+    });
+</script>
 </body>
 </html>
+

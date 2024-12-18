@@ -1,57 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif; /* Set the default font for the page */
-    line-height: 1.6; /* Set line spacing for better readability */
-    margin: 0; /* Remove default browser margins */
-    padding: 0; /* Remove default browser padding */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange elements vertically */
-    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+    font-family: 'Montserrat', sans-serif;
+    background: url('../coded-data.gif') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #0fc;
 }
 
-header, footer {
-    background-color: #333; /* Dark gray background for header and footer */
-    color: #fff; /* White text color for header and footer */
-    text-align: center; /* Center align text within header and footer */
-    padding: 1rem; /* Add padding around the content */
+.header-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #0fc;
 }
 
-main {
-    flex: 1; /* Allow the main content area to grow and fill available space */
-    padding: 2rem; /* Add padding around the main content */
-    max-width: 800px; /* Set a maximum width for the main content area */
-    margin: 0 auto; /* Center the main content area horizontally */
+.header-bar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h1, h2 {
-    margin-bottom: 1rem; /* Add spacing below headings */
+.header-bar .logo svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: #0fc;
 }
 
-form {
-    display: flex; /* Use flexbox for form layout */
-    flex-direction: column; /* Arrange form elements vertically */
-    gap: 1rem; /* Add spacing between form elements */
+.header-bar .logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-label {
-    font-weight: bold; /* Make labels bold */
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
 }
 
-textarea, select {
-    width: 100%; /* Make textareas and selects take up full width */
-    padding: 0.5rem; /* Add padding within textareas and selects */
-    border: 1px solid #ccc; /* Add a light gray border */
-    border-radius: 4px; /* Add rounded corners */
+.content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #0fc;
 }
 
-button {
-    background-color: #333; /* Dark gray background for buttons */
-    color: #fff; /* White text color for buttons */
-    padding: 0.5rem 1rem; /* Add padding within buttons */
-    border: none; /* Remove default button border */
-    border-radius: 4px; /* Add rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
+.title-section {
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-button:hover {
-    background-color: #555; /* Slightly darker background on hover */
+.title-section h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0fc;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
+
+.title-section p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #0fc;
+    margin-top: 0.5rem;
+}
+
+.input-section,
+.result-section {
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #0fc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #0fc;
+    background-color: rgba(0, 0, 0, 0.6);
+    resize: vertical;
+    min-height: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+textarea::placeholder {
+    color: rgba(0, 255, 204, 0.5);
+}
+
+.clear-btn,
+.copy-btn {
+    background-color: rgba(0, 255, 204, 0.2);
+    color: #0fc;
+    border: 1px solid #0fc;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.clear-btn:hover,
+.copy-btn:hover {
+    background-color: rgba(0, 255, 204, 0.4);
+}
+
+.algorithm-section {
+    margin-bottom: 1.5rem;
+}
+
+.algorithm-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #0fc;
+}
+
+.algorithm-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.algorithm-options label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #0fc;
+    display: flex;
+    align-items: center;
+}
+
+.algorithm-options input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.encrypt-btn,
+.decrypt-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.encrypt-btn {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.decrypt-btn {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.encrypt-btn:hover,
+.decrypt-btn:hover {
+    transform: translateY(-2px);
+}
+
+.encrypt-btn:hover {
+    background-color: rgba(40, 167, 69, 0.4);
+}
+
+.decrypt-btn:hover {
+    background-color: rgba(220, 53, 69, 0.4);
+}
+
+.advanced-btn {
+    display: inline-block;
+    background-color: rgba(49, 100, 244, 0.2);
+    color: #3498db;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #3498db;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.advanced-btn:hover {
+    background-color: rgba(49, 100, 244, 0.4);
+    transform: translateY(-2px);
+}
+
+.footer-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #0fc;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    border-top: 2px solid #0fc;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1.5rem;
+    }
+
+    .title-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .title-section p {
+        font-size: 0.9rem;
+    }
+
+    .algorithm-options {
+        flex-direction: column;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .encrypt-btn,
+    .decrypt-btn {
+        width: 100%;
+    }
+
+    .advanced-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+

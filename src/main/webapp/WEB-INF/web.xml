@@ -6,6 +6,16 @@
 
     <display-name>CipherEase</display-name>
 
+    <servlet>
+        <servlet-name>ProcessServlet</servlet-name>
+        <servlet-class>com.cipherease.ProcessServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ProcessServlet</servlet-name>
+        <url-pattern>/process</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
