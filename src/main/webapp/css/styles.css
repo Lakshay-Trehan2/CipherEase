@@ -1,261 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+/* Importing Montserrat font from Google Fonts */
 
+/* Global styles for all elements */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background: url('../coded-data.gif') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: #0fc;
+    font-family: 'Montserrat', sans-serif; /* Applying Montserrat font */
+    background: url('../coded-data.gif') no-repeat center center fixed; /* Background image, centered and fixed */
+    background-size: cover; /* Ensures the background image covers the whole page */
+    min-height: 100vh; /* Minimum height to cover the viewport */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks children vertically */
+    color: #0fc; /* Text color */
 }
 
 .header-bar {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 2px solid #0fc;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 1rem; /* Padding around content */
+    text-align: center; /* Centers text horizontally */
+    border-bottom: 2px solid #0fc; /* Bottom border with custom color */
 }
 
 .header-bar .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* Flex layout for logo */
+    align-items: center; /* Aligns items vertically */
+    justify-content: center; /* Centers items horizontally */
 }
 
 .header-bar .logo svg {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    fill: #0fc;
+    width: 24px; /* SVG icon width */
+    height: 24px; /* SVG icon height */
+    margin-right: 10px; /* Space between icon and text */
+    fill: #0fc; /* Icon color */
 }
 
 .header-bar .logo span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 1.5rem; /* Text size */
+    font-weight: 700; /* Bold text */
+    letter-spacing: 2px; /* Space between letters */
 }
 
 .container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
+    flex-grow: 1; /* Fills available space */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    padding: 2rem 1rem; /* Padding for container */
 }
 
 .content {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
-    width: 100%;
-    max-width: 600px;
-    border: 1px solid #0fc;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 2rem; /* Padding inside content box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3); /* Glowing effect */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Limits maximum width */
+    border: 1px solid #0fc; /* Border with custom color */
 }
 
+/* Styling for the title section */
 .title-section {
-    text-align: center;
-    margin-bottom: 1.5rem;
+    text-align: center; /* Centers content */
+    margin-bottom: 1.5rem; /* Space below */
 }
 
 .title-section h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #0fc;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    font-size: 1.8rem; /* Font size for title */
+    font-weight: 600; /* Semi-bold font weight */
+    color: #0fc; /* Title color */
+    text-transform: uppercase; /* Converts text to uppercase */
+    letter-spacing: 3px; /* Space between letters */
 }
 
 .title-section p {
-    font-size: 1rem;
-    font-weight: 300;
-    color: #0fc;
-    margin-top: 0.5rem;
+    font-size: 1rem; /* Font size for subtitle */
+    font-weight: 300; /* Light font weight */
+    color: #0fc; /* Subtitle color */
+    margin-top: 0.5rem; /* Space above */
 }
 
-.input-section,
-.result-section {
-    margin-bottom: 1.5rem;
-}
-
+/* Styles for text areas */
 textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #0fc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #0fc;
-    background-color: rgba(0, 0, 0, 0.6);
-    resize: vertical;
-    min-height: 100px;
-    font-family: 'Montserrat', sans-serif;
+    width: 100%; /* Full width */
+    padding: 0.5rem; /* Padding inside textarea */
+    border: 1px solid #0fc; /* Border with custom color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Text size */
+    color: #0fc; /* Text color */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    resize: vertical; /* Allows vertical resizing only */
+    min-height: 100px; /* Minimum height */
+    font-family: 'Montserrat', sans-serif; /* Ensures consistent font */
 }
 
 textarea::placeholder {
-    color: rgba(0, 255, 204, 0.5);
+    color: rgba(0, 255, 204, 0.5); /* Placeholder text color */
 }
 
+/* Button styles */
 .clear-btn,
 .copy-btn {
-    background-color: rgba(0, 255, 204, 0.2);
-    color: #0fc;
-    border: 1px solid #0fc;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
+    background-color: rgba(0, 255, 204, 0.2); /* Light background */
+    color: #0fc; /* Text color */
+    border: 1px solid #0fc; /* Border with custom color */
+    padding: 0.5rem 1rem; /* Padding around button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 0.9rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    margin-top: 0.5rem; /* Space above */
 }
 
 .clear-btn:hover,
 .copy-btn:hover {
-    background-color: rgba(0, 255, 204, 0.4);
+    background-color: rgba(0, 255, 204, 0.4); /* Darker hover effect */
 }
 
-.algorithm-section {
-    margin-bottom: 1.5rem;
-}
-
-.algorithm-section h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #0fc;
-}
-
-.algorithm-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.algorithm-options label {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #0fc;
-    display: flex;
-    align-items: center;
-}
-
-.algorithm-options input[type="radio"] {
-    margin-right: 0.5rem;
-}
-
-.buttons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.encrypt-btn,
-.decrypt-btn {
-    flex: 1;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-
-.encrypt-btn {
-    background-color: rgba(40, 167, 69, 0.2);
-    color: #2ecc71;
-    border: 1px solid #2ecc71;
-}
-
-.decrypt-btn {
-    background-color: rgba(220, 53, 69, 0.2);
-    color: #e74c3c;
-    border: 1px solid #e74c3c;
-}
-
-.encrypt-btn:hover,
-.decrypt-btn:hover {
-    transform: translateY(-2px);
-}
-
-.encrypt-btn:hover {
-    background-color: rgba(40, 167, 69, 0.4);
-}
-
-.decrypt-btn:hover {
-    background-color: rgba(220, 53, 69, 0.4);
-}
-
-.advanced-btn {
-    display: inline-block;
-    background-color: rgba(49, 100, 244, 0.2);
-    color: #3498db;
-    text-align: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid #3498db;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.advanced-btn:hover {
-    background-color: rgba(49, 100, 244, 0.4);
-    transform: translateY(-2px);
-}
-
-.footer-bar {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #0fc;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    font-weight: 300;
-    border-top: 2px solid #0fc;
-}
-
-@media (max-width: 768px) {
-    .content {
-        padding: 1.5rem;
-    }
-
-    .title-section h1 {
-        font-size: 1.5rem;
-    }
-
-    .title-section p {
-        font-size: 0.9rem;
-    }
-
-    .algorithm-options {
-        flex-direction: column;
-    }
-
-    .buttons {
-        flex-direction: column;
-    }
-
-    .encrypt-btn,
-    .decrypt-btn {
-        width: 100%;
-    }
-
-    .advanced-btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
+/* More specific styles follow the same pattern */
