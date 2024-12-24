@@ -48,11 +48,11 @@ This tool is easy to use and works with encryption keys to lock and unlock data.
 
 - Maven
 
-  Server:
+Server:
   
 - Apache Tomcat
 
-  Libraries:
+Libraries:
 
 - CryptoJS (for client-side AES in advanced mode)
 
