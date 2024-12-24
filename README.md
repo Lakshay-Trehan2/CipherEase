@@ -45,8 +45,8 @@ CipherEase is a web-based encryption and decryption tool that provides a user-fr
 
 - Maven
 
-- Server:
-
+  **Server:
+**
 - Apache Tomcat
 
 - Libraries:
