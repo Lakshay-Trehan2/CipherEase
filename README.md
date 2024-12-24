@@ -3,8 +3,11 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/version-2.0.0-green.svg) 
 
-CipherEase is a web-based encryption and decryption tool that provides a user-friendly interface for securing sensitive information. With its sleek, hacker-inspired design, CipherEase offers both basic and advanced encryption options for users of all skill levels.
+About CipherEase: 
 
+Cipherease is a simple tool that protects sensitive information by turning it into unreadable codes using encryption. It ensures privacy and security, making it useful for safe communication, file storage, and data sharing.  
+
+This tool is easy to use and works with encryption keys to lock and unlock data. Losing the key can make the data inaccessible, so proper key management is very important.
 
 ## Features
 
@@ -29,7 +32,7 @@ CipherEase is a web-based encryption and decryption tool that provides a user-fr
 ## Technologies Used
 
 
-- Frontend:
+ Frontend:
 
 - HTML5
 
@@ -37,15 +40,16 @@ CipherEase is a web-based encryption and decryption tool that provides a user-fr
 
 - JavaScript (ES6+)
 
-- Backend:
+ Backend:
 
 - Java Servlets
 
-- Build Tool:
+ Build Tool:
 
 - Maven
 
   Server:
+  
 - Apache Tomcat
 
   Libraries:
