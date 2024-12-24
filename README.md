@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/version-2.0.0-green.svg) 
 
-About CipherEase: 
+# About CipherEase: 
 
 Cipherease is a simple tool that protects sensitive information by turning it into unreadable codes using encryption. It ensures privacy and security, making it useful for safe communication, file storage, and data sharing.  
 
