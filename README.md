@@ -32,29 +32,22 @@ This tool is easy to use and works with encryption keys to lock and unlock data.
 ## Technologies Used
 
 
- Frontend:
+ ### **Frontend**  
+- **HTML5**: Provides the structure and content of the web application.  
+- **CSS3**: Styles the web application with modern design features.  
+- **JavaScript (ES6+)**: Adds interactivity and advanced functionality with the latest ECMAScript features.  
 
-- HTML5
+### **Backend**  
+- **Java Servlets**: Handles server-side logic and processes client requests.  
 
-- CSS3
+### **Build Tool**  
+- **Maven**: Manages dependencies and automates the build process for the application.  
 
-- JavaScript (ES6+)
+### **Server**  
+- **Apache Tomcat**: Serves the application and processes backend operations efficiently.  
 
- Backend:
-
-- Java Servlets
-
- Build Tool:
-
-- Maven
-
-Server:
-  
-- Apache Tomcat
-
-Libraries:
-
-- CryptoJS (for client-side AES in advanced mode)
+### **Libraries**  
+- **CryptoJS**: Implements client-side AES encryption for secure data handling.  
 
 
 ## Prerequisites
