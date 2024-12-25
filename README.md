@@ -24,8 +24,11 @@ While Cipherease is easy to use, proper management of encryption keys is critica
 - **Basic and Advanced Encryption Modes**: Provides options for users, from straightforward encryption to more sophisticated setups.  
 - **Responsive Design**: Optimized for seamless use across both desktop and mobile devices.  
 - **Copy-to-Clipboard Functionality**: Allows quick copying of encrypted or decrypted text for ease of sharing.  
-- **Server-Side Processing**: Enhances security by handling sensitive operations on a secure backend server.  
+- **Server-Side Processing**: Enhances security by handling sensitive operations on a secure backend server.
 
+## C4 Architecture Model 
+
+![Pitch Deck](https://github.com/user-attachments/assets/ce4f0da7-c9c6-457f-9f75-292d14c5566d)
 
 ## Technologies Used
 
