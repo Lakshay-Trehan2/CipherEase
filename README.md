@@ -10,26 +10,21 @@ Cipherease is a user-friendly tool designed to protect sensitive information by 
 The tool operates using encryption keys, which are required to lock and unlock the information. This ensures that only the intended recipient with the correct key can access the data. Cipherease supports various encryption methods, making it versatile and reliable for different use cases.  
 
 While Cipherease is easy to use, proper management of encryption keys is critical. Losing or mismanaging the key can result in permanent data loss, as encrypted information cannot be accessed without it. By combining simplicity with strong encryption, Cipherease ensures both privacy and ease of use for everyday security needs.  
-![Screenshot 2024-12-19 225309](https://github.com/user-attachments/assets/6e14fb4b-9ce2-4e69-a5fb-a5d96ed95cc9) ![Screenshot 2024-12-19 225406](https://github.com/user-attachments/assets/81426db1-2df4-49c5-8b58-0883809825cc)
+
+![WhatsApp Image 2024-12-25 at 14 16 54_a45b9172](https://github.com/user-attachments/assets/42eed4f8-9531-4900-97df-12da1802f5e6)
+
 
 ## Features
 
 
-- Simple and intuitive user interface
-
-- Support for multiple encryption algorithms:
-
-- Caesar Cipher (client-side)
-
-- AES (server-side)
-
-- Basic and advanced encryption modes
-
-- Responsive design for desktop and mobile devices
-
-- Copy to clipboard functionality
-
-- Server-side processing for enhanced security
+- **Simple and Intuitive User Interface**: Designed for ease of use, allowing users to encrypt and decrypt data effortlessly.  
+- **Support for Multiple Encryption Algorithms**: Offers flexibility with a variety of encryption methods for different needs.  
+  - **Caesar Cipher (Client-Side)**: Lightweight, quick encryption for simple use cases.  
+  - **AES (Server-Side)**: Robust, industry-standard encryption for high-security applications.  
+- **Basic and Advanced Encryption Modes**: Provides options for users, from straightforward encryption to more sophisticated setups.  
+- **Responsive Design**: Optimized for seamless use across both desktop and mobile devices.  
+- **Copy-to-Clipboard Functionality**: Allows quick copying of encrypted or decrypted text for ease of sharing.  
+- **Server-Side Processing**: Enhances security by handling sensitive operations on a secure backend server.  
 
 
 ## Technologies Used
