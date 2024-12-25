@@ -10,8 +10,7 @@ Cipherease is a user-friendly tool designed to protect sensitive information by 
 The tool operates using encryption keys, which are required to lock and unlock the information. This ensures that only the intended recipient with the correct key can access the data. Cipherease supports various encryption methods, making it versatile and reliable for different use cases.  
 
 While Cipherease is easy to use, proper management of encryption keys is critical. Losing or mismanaging the key can result in permanent data loss, as encrypted information cannot be accessed without it. By combining simplicity with strong encryption, Cipherease ensures both privacy and ease of use for everyday security needs.  
-![Screenshot 2024-12-19 225309](https://github.com/user-attachments/assets/6e14fb4b-9ce2-4e69-a5fb-a5d96ed95cc9)
-![Screenshot 2024-12-19 225406](https://github.com/user-attachments/assets/81426db1-2df4-49c5-8b58-0883809825cc)
+![Screenshot 2024-12-19 225309](https://github.com/user-attachments/assets/6e14fb4b-9ce2-4e69-a5fb-a5d96ed95cc9) ![Screenshot 2024-12-19 225406](https://github.com/user-attachments/assets/81426db1-2df4-49c5-8b58-0883809825cc)
 
 ## Features
 
