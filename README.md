@@ -74,14 +74,19 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
 
+```
 git clone https://github.com/yourusername/cipherease.git
+```
 
+```
 cd cipherease
-
+```
 
 2. Build the project using Maven:
 
+```
 mvn clean package
+```
 
 
 3. Deploy the generated WAR file to your Tomcat server:
